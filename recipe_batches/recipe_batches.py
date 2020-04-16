@@ -28,7 +28,7 @@ def recipe_batches(recipe, ingredients):
 			sm_ing_name, sm_ing_value = key, value
 			try:
 				recipe_ing_value = recipe[key]
-			except Exception as e:
+			except:
 				return "recipe does not have this ingredient"
 
 	return sm_ing_value // recipe_ing_value

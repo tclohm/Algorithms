@@ -32,13 +32,26 @@ def rock_paper_scissors(n):
 	# base case
 	# iteration towards the base case
 	# call itself, recursively
-	states = ['rock', 'paper', 'scissors']
+	moves = ['rock', 'paper', 'scissors']
 	games = []
+
+
+	def building_possible_results(remaining_games=n, results=[]):
+		# always start with the base case
+		if remaining_games < 1:
+			games.append(results)
+			return games
+
+		for move in moves:
+			building_possible_results(remaining_games - 1, results +[move])
+
+	building_possible_results()
 
 	return games
 
 
 print(rock_paper_scissors(1))
+
 
 if __name__ == "__main__":
   if len(sys.argv) > 1:
