@@ -35,6 +35,7 @@ import sys
 
 
 def eating_cookies(n, cache=None):
+
 	print(cache)
 	if cache is None:
 		cache = [0] * (n + 1)
