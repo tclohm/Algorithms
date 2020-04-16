@@ -14,17 +14,22 @@
 import argparse
 
 def find_max_profit(prices):
-	# find the biggest gap between the numbers
-	difference = -10000000
-	for time, price in enumerate(prices):
-		for it_time, it_price in enumerate(prices):
-			if time - it_time > 0 and difference < price - it_price:
-					#print("price:", price, "iteration price:", it_price, "\n\tprice - iteration price =", price-it_price)
-				difference = price - it_price
-	return difference
+	# difference set very low
+	max_difference = -1000000000
+	lowest_price = prices[0]
 
-print(find_max_profit([1050, 270, 1540, 3800, 2]))
-print(find_max_profit([100, 90, 80, 50, 20, 10]))
+	# if our current price is lower than the lowest_price 
+	# set it to new lowest price
+	for i in range(0, len(prices) - 1):
+		price_ahead = prices[i + 1]
+		# if the current price is lower than our lowest_price, set it
+		if prices[i] < lowest_price:
+			lowest_price = prices[i]
+		# if the price_ahead - lowest_price is greater than max_difference, set it
+		if price_ahead - lowest_price > max_difference:
+			max_difference = price_ahead - lowest_price
+
+	return max_difference
 
 
 if __name__ == '__main__':
