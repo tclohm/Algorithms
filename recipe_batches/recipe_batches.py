@@ -26,7 +26,10 @@ def recipe_batches(recipe, ingredients):
 	for key, value in ingredients.items():
 		if value < sm_ing_value:
 			sm_ing_name, sm_ing_value = key, value
-			recipe_ing_value = recipe[key]
+			try:
+				recipe_ing_value = recipe[key]
+			except Exception as e:
+				return "recipe does not have this ingredient"
 
 	return sm_ing_value // recipe_ing_value
 	
