@@ -35,7 +35,6 @@ def rock_paper_scissors(n):
 	moves = ['rock', 'paper', 'scissors']
 	games = []
 
-
 	def building_possible_results(remaining_games=n, results=[]):
 		# always start with the base case
 		if remaining_games < 1:
@@ -48,9 +47,6 @@ def rock_paper_scissors(n):
 	building_possible_results()
 
 	return games
-
-
-print(rock_paper_scissors(1))
 
 
 if __name__ == "__main__":
